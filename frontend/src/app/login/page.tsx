@@ -3,13 +3,15 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+const API_BASE_URL = "https://controle-faltas-app-ecql.onrender.com/api"; 
+
 export default function Login() {
     const { register, handleSubmit } = useForm();
     const router = useRouter();
 
     const onSubmit = async (data: any) => {
         try {
-            const { data: resp } = await axios.post("http://localhost:4000/api/users/login", data);
+            const { data: resp } = await axios.post(`${API_BASE_URL}/users/login`, data);
             localStorage.setItem("token", resp.token);
             router.push("/dashboard");
         } catch {

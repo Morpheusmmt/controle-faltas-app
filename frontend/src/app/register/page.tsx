@@ -3,13 +3,15 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+const API_BASE_URL = "https://controle-faltas-app-ecql.onrender.com/api";
+
 export default function Register() {
     const { register, handleSubmit } = useForm();
     const router = useRouter();
 
     const onSubmit = async (data: any) => {
         try {
-            await axios.post("http://localhost:4000/api/users/register", data);
+            await axios.post(`${API_BASE_URL}/users/register`, data);
             alert("Registrado com sucesso! Faça login.");
             router.push("/login");
         } catch {
