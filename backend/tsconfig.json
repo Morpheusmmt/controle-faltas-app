@@ -1,44 +1,25 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
+    "target": "es2020",
+    
+    // Configuração CJS Padrão para Express/ts-node
+    "module": "commonjs",             
+    "esModuleInterop": true,
+    "moduleResolution": "node",        // Usa a resolução clássica do Node (CJS)
+    
+    // Removendo as regras que causam o TS1295 e o ERR_REQUIRE_CYCLE_MODULE
+    "verbatimModuleSyntax": false, 
+    "isolatedModules": false,      
+    
+    // Diretórios
+    "outDir": "./dist",
+    "rootDir": "./src",
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
+    // Regras de Qualidade (Mantenha se desejar)
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

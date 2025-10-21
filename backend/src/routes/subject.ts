@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { auth } from "../middlewares/authMiddleware.js";
-import { addAbsence, getAbsencesBySubject, deleteAbsence } from "../controllers/AbsenceController.js";
-import prisma from "../prisma.js";
+import { auth } from "../middlewares/authMiddleware";
+import { addAbsence, getAbsencesBySubject, deleteAbsence } from "../controllers/AbsenceController";
+import prisma from "../prisma";
 
 const router = Router();
 

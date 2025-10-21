@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
-import prisma from '../prisma.js';
-
-const prisma = new PrismaClient();
+import prisma from '../prisma';
 
 interface AuthenticatedRequest extends Request {
   user?: { id: number }; 
