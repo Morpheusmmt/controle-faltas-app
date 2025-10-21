@@ -20,7 +20,7 @@ interface AbsenceRecord {
 }
 
 
-const api = axios.create({ baseURL: "http://localhost:4000/api" });
+const api = axios.create({ baseURL: "https://controle-faltas-app-ecql.onrender.com" });
 
 api.interceptors.request.use(config => {
     const token = typeof window !== "undefined" ? localStorage.getItem("token") : "";
