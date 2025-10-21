@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { prisma } from '../app';
+import { prisma } from '../app.js';
 
 interface AuthenticatedRequest extends Request {
   userId?: string;
