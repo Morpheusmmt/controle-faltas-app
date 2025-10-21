@@ -4,7 +4,6 @@ import { addAbsence, getAbsencesBySubject, deleteAbsence } from "../controllers/
 import prisma from "../prisma.js";
 
 const router = Router();
-const prisma = new PrismaClient();
 
 const calculateTotalClasses = (totalWorkloadHours: number, classDurationHours: number): number => {
     if (classDurationHours <= 0) return 0;
