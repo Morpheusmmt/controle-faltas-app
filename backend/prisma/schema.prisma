@@ -1,0 +1,36 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  subjects  Subject[] 
+}
+model Subject {
+  id                 Int      @id @default(autoincrement())
+  name               String
+  type               String   
+  totalWorkloadHours Int      @default(0)
+  classDurationHours Int      @default(0)  
+  absences           Int      @default(0) 
+  userId             Int
+  user               User     @relation(fields: [userId], references: [id])
+  absenceRecords     AbsenceRecord[]
+  @@unique([name, userId]) 
+}
+
+model AbsenceRecord {
+  id        Int      @id @default(autoincrement())
+  date      DateTime @db.Date 
+  subjectId Int
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  @@unique([date, subjectId])
+}

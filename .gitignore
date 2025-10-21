@@ -1,0 +1,13 @@
+# Pastas de dependências e cache
+node_modules
+.next
+dist
+
+# Arquivos de ambiente
+.env
+
+# Primas e Logs
+*.log
+/backend/prisma/dev.db
+/backend/node_modules
+/frontend/node_modules
